@@ -21,9 +21,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * A user.
  */
 @Entity
-@Table(name = "jhi_user")
+@Table(name = "utilisateur")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class User extends AbstractAuditingEntity implements Serializable {
+public class User extends AbstractAuditingEntity implements Serializable { // i removed extends
 
     private static final long serialVersionUID = 1L;
 
@@ -35,51 +35,58 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @NotNull
     @Pattern(regexp = Constants.LOGIN_REGEX)
     @Size(min = 1, max = 50)
-    @Column(length = 50, unique = true, nullable = false)
+    @Column(name = "utilisateur", length = 50, unique = true, nullable = false)
     private String login;
 
     @JsonIgnore
     @NotNull
     @Size(min = 60, max = 60)
-    @Column(name = "password_hash", length = 60, nullable = false)
+    @Column(name = "password", length = 60, nullable = false)
     private String password;
 
     @Size(max = 50)
-    @Column(name = "first_name", length = 50)
+    @Column(name = "prenom", length = 50)
     private String firstName;
 
     @Size(max = 50)
-    @Column(name = "last_name", length = 50)
+    @Column(name = "nom", length = 50)
     private String lastName;
 
     @Email
     @Size(min = 5, max = 254)
-    @Column(length = 254, unique = true)
+    //@Column(length = 254, unique = true)
+    @Transient
     private String email;
 
     @NotNull
-    @Column(nullable = false)
+    //@Column(nullable = false)
+    @Transient
     private boolean activated = false;
 
     @Size(min = 2, max = 10)
-    @Column(name = "lang_key", length = 10)
+    //@Column(name = "lang_key", length = 10)
+    @Transient
     private String langKey;
 
     @Size(max = 256)
-    @Column(name = "image_url", length = 256)
+    //@Column(name = "image_url", length = 256)
+    @Transient
     private String imageUrl;
 
     @Size(max = 20)
-    @Column(name = "activation_key", length = 20)
+    //@Column(name = "activation_key", length = 20)
     @JsonIgnore
+    @Transient
     private String activationKey;
 
     @Size(max = 20)
-    @Column(name = "reset_key", length = 20)
+    //@Column(name = "reset_key", length = 20)
+    @Transient
     @JsonIgnore
     private String resetKey;
 
-    @Column(name = "reset_date")
+    //@Column(name = "reset_date")
+    @Transient
     private Instant resetDate = null;
 
     @JsonIgnore
@@ -222,11 +229,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
             "login='" + login + '\'' +
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
-            ", email='" + email + '\'' +
-            ", imageUrl='" + imageUrl + '\'' +
-            ", activated='" + activated + '\'' +
-            ", langKey='" + langKey + '\'' +
-            ", activationKey='" + activationKey + '\'' +
             "}";
     }
 }
