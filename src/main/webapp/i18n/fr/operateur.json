@@ -1,0 +1,26 @@
+{
+  "userAuthApp": {
+    "operateur": {
+      "home": {
+        "title": "Operateurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Operateur",
+        "createOrEditLabel": "Créer ou éditer un Operateur",
+        "notFound": "Aucun Operateur trouvé"
+      },
+      "created": "Un nouveau Operateur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Operateur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Operateur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Operateur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Operateur"
+      },
+      "id": "ID",
+      "centreRc": "Centre Rc",
+      "numeroRc": "Numero Rc",
+      "utilisateur": "Utilisateur"
+    }
+  }
+}

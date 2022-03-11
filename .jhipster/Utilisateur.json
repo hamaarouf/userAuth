@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20220311231839",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "utilisateur",
+  "fields": [
+    {
+      "fieldName": "nomUtilisateur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateInscription",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Utilisateur",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "operateur",
+      "otherEntityRelationshipName": "utilisateur",
+      "relationshipName": "operateur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

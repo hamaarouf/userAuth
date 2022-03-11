@@ -1,0 +1,18 @@
+entity Utilisateur {
+  nomUtilisateur String 
+  prenom String 
+  nom String 
+  dateInscription LocalDate 
+  password String
+}
+
+entity Operateur {
+  centreRc String 
+  numeroRc String 
+}
+
+
+relationship ManyToOne {
+  Utilisateur to Operateur
+}
+paginate Operateur, Utilisateur with infinite-scroll

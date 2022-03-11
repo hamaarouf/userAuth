@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20220311231840",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "operateur",
+  "fields": [
+    {
+      "fieldName": "centreRc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroRc",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Operateur",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "utilisateur",
+      "otherEntityRelationshipName": "operateur",
+      "relationshipName": "utilisateur",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}
