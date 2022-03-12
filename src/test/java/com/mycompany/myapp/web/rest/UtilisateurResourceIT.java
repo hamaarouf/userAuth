@@ -159,7 +159,7 @@ class UtilisateurResourceIT {
 
     @Test
     @Transactional
-    void findAllJames() throws Exception {
+    void getAllUtilisateursCalledJames() throws Exception {
         // Initialize the database
         utilisateurRepository.saveAndFlush(utilisateur);
 
