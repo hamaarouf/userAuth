@@ -159,6 +159,25 @@ class UtilisateurResourceIT {
 
     @Test
     @Transactional
+    void findAllJames() throws Exception {
+        // Initialize the database
+        utilisateurRepository.saveAndFlush(utilisateur);
+
+        // Get all the utilisateurList
+        restUtilisateurMockMvc
+            .perform(get("/api/utilisateurCalledJames" + "?sort=id,desc"))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(utilisateur.getId().intValue())))
+            .andExpect(jsonPath("$.[*].nomUtilisateur").value(hasItem(DEFAULT_NOM_UTILISATEUR)))
+            .andExpect(jsonPath("$.[*].prenom").value(hasItem(DEFAULT_PRENOM)))
+            .andExpect(jsonPath("$.[*].nom").value(hasItem(DEFAULT_NOM)))
+            .andExpect(jsonPath("$.[*].dateInscription").value(hasItem(DEFAULT_DATE_INSCRIPTION.toString())))
+            .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_PASSWORD)));
+    }
+
+    @Test
+    @Transactional
     void getUtilisateur() throws Exception {
         // Initialize the database
         utilisateurRepository.saveAndFlush(utilisateur);

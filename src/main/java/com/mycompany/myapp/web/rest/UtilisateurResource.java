@@ -197,4 +197,20 @@ public class UtilisateurResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
     }
+
+    /**
+     * {@code GET  /utilisateurCalledJames} : get all the utilisateurs Called James.
+     *
+     * @param pageable the pagination information.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of utilisateurs in body.
+     */
+    @GetMapping("/utilisateurCalledJames")
+    public ResponseEntity<List<Utilisateur>> getAllUtilisateursCalledJames(
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable
+    ) {
+        log.debug("REST request to get a page of Utilisateurs");
+        Page<Utilisateur> page = utilisateurRepository.findAllJames(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
 }
