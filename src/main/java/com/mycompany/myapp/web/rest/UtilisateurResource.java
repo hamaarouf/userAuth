@@ -1,10 +1,14 @@
 package com.mycompany.myapp.web.rest;
 
+import com.mycompany.myapp.domain.Operateur;
 import com.mycompany.myapp.domain.Utilisateur;
 import com.mycompany.myapp.repository.UtilisateurRepository;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -213,4 +217,51 @@ public class UtilisateurResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+
+    @GetMapping("/utilisateursOperateurs")
+    public ResponseEntity<List<Utilisateur>> getAllUtilisateursCalledOperateurs(
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable
+    ) {
+        log.debug("REST request to get a page of Utilisateurs");
+        Page<Utilisateur> page = utilisateurRepository.findAllOperateurs(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+    /*  @GetMapping("/utilisateursOperateurs")
+    public ResponseEntity<List<Object[]>> getAllUtilisateursCalledOperateurs(
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable
+    ) {
+        log.debug("REST request to get a page of Utilisateurs Operateurs");
+        Page<Object[]> page = utilisateurRepository.findAllOperateurs(pageable);
+        for(Object[] obj : page){
+            Utilisateur utilisateur = (Utilisateur) obj[0];
+            String centre_rc = (String) obj[1];
+        }
+        
+        //Page<Object[]> page = utilisateurRepository.findAllOperateurs(pageable);
+        //Page<Utilisateur> utilisateurs = (Page<Utilisateur>) new ArrayList<Utilisateur>();
+       // for(Object[] obj : page){
+
+            
+            /*Utilisateur utilisateur = new Utilisateur();
+            Operateur operateur = new Operateur();
+            //utilisateur.setId((BigInteger)obj[0]);
+            utilisateur.setNomUtilisateur((String) obj[1]);
+            utilisateur.setPrenom((String) obj[2]);
+            utilisateur.setNom((String) obj[3]);
+           // utilisateur.setDateInscription((LocalDate) obj[4]);
+
+           // operateur.setId((Long) obj[6]);
+            operateur.setCentreRc((String) obj[7]);
+            operateur.setNumeroRc((String) obj[7]);
+            utilisateur.setOperateur(operateur);
+            utilisateurs.add(utilisateur);*/
+    //String centre_rc = (String) obj[];
+    // }
+    //Page<Utilisateur> pagee = (Page<Utilisateur>) utilisateurs;
+
+    // HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+    //   return ResponseEntity.ok().headers(headers).body(page.getContent());
+    // }
+
 }

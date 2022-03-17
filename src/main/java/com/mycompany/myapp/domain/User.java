@@ -22,6 +22,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  */
 @Entity
 @Table(name = "jhi_user")
+//@SecondaryTable(name = "usuario", pkJoinColumns = @PrimaryKeyJoinColumn(name = "meal_id"))
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class User extends AbstractAuditingEntity implements Serializable {
 

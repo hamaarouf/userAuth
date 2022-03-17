@@ -140,6 +140,9 @@ export const Utilisateur = (props: RouteComponentProps<{ url: string }>) => {
                   <th className="hand" onClick={sort('password')}>
                     <Translate contentKey="userAuthApp.utilisateur.password">Password</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th className="hand" onClick={sort('centre_rc')}>
+                    <Translate contentKey="userAuthApp.utilisateur.centre_rc">Centre Rc</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th>
                     <Translate contentKey="userAuthApp.utilisateur.operateur">Operateur</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
@@ -163,6 +166,7 @@ export const Utilisateur = (props: RouteComponentProps<{ url: string }>) => {
                       ) : null}
                     </td>
                     <td>{utilisateur.password}</td>
+                    <td>{utilisateur.centre_rc}</td>
                     <td>
                       {utilisateur.operateur ? <Link to={`operateur/${utilisateur.operateur.id}`}>{utilisateur.operateur.id}</Link> : ''}
                     </td>

@@ -117,6 +117,13 @@ export const UtilisateurUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 type="text"
               />
               <ValidatedField
+                label={translate('userAuthApp.utilisateur.centre_rc')}
+                id="utilisateur-centre_rc"
+                name="centre_rc"
+                data-cy="centre_rc"
+                type="text"
+              />
+              <ValidatedField
                 id="utilisateur-operateur"
                 name="operateur"
                 data-cy="operateur"

@@ -64,6 +64,12 @@ export const UtilisateurDetail = (props: RouteComponentProps<{ id: string }>) =>
           </dt>
           <dd>{utilisateurEntity.password}</dd>
           <dt>
+            <span id="centre_rc">
+              <Translate contentKey="userAuthApp.utilisateur.centre_rc">Centre Rc</Translate>
+            </span>
+          </dt>
+          <dd>{utilisateurEntity.centre_rc}</dd>
+          <dt>
             <Translate contentKey="userAuthApp.utilisateur.operateur">Operateur</Translate>
           </dt>
           <dd>{utilisateurEntity.operateur ? utilisateurEntity.operateur.id : ''}</dd>

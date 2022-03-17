@@ -15,6 +15,8 @@ import passwordReset from 'app/modules/account/password-reset/password-reset.red
 import utilisateur from 'app/entities/utilisateur/utilisateur.reducer';
 // prettier-ignore
 import operateur from 'app/entities/operateur/operateur.reducer';
+// prettier-ignore
+import employee from 'app/entities/employee/employee.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const rootReducer = {
@@ -30,6 +32,7 @@ const rootReducer = {
   settings,
   utilisateur,
   operateur,
+  employee,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 };

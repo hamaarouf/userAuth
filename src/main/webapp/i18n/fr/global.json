@@ -9,6 +9,7 @@
         "main": "Entités",
         "utilisateur": "Utilisateur",
         "operateur": "Operateur",
+        "employee": "Employee",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

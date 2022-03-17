@@ -8,6 +8,7 @@ export interface IUtilisateur {
   nom?: string | null;
   dateInscription?: string | null;
   password?: string | null;
+  centre_rc?: string | null;
   operateur?: IOperateur | null;
 }
 

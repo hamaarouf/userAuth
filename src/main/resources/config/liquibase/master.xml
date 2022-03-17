@@ -17,6 +17,7 @@
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220311231839_added_entity_Utilisateur.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220311231840_added_entity_Operateur.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220316111030_added_entity_Employee.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20220311231839_added_entity_constraints_Utilisateur.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->

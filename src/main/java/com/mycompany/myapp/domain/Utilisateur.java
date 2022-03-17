@@ -1,6 +1,12 @@
 package com.mycompany.myapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
@@ -12,7 +18,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  */
 @Entity
 @Table(name = "utilisateur")
+//@SecondaryTable(name = "operateur")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Utilisateur implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,6 +45,34 @@ public class Utilisateur implements Serializable {
 
     @Column(name = "password")
     private String password;
+
+    @Transient
+    // @JsonSerialize
+    // @JsonDeserialize
+    @JsonProperty
+    private String centre_rc;
+
+    /*  public Utilisateur() {
+    }
+
+    public Utilisateur(Long id, String nomUtilisateur, String prenom, String nom, LocalDate dateInscription, String password, String centre_rc, Operateur operateur) {
+        this.id = id;
+        this.nomUtilisateur = nomUtilisateur;
+        this.prenom = prenom;
+        this.nom = nom;
+        this.dateInscription = dateInscription;
+        this.password = password;
+        this.centre_rc = centre_rc;
+        this.operateur = operateur;
+    }*/
+
+    public String getCentre_rc() {
+        return this.centre_rc;
+    }
+
+    public void setCentre_rc(String centre_rc) {
+        this.centre_rc = centre_rc;
+    }
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "utilisateurs" }, allowSetters = true)

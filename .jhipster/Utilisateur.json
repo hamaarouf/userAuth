@@ -24,6 +24,10 @@
     {
       "fieldName": "password",
       "fieldType": "String"
+    },
+    {
+      "fieldName": "centre_rc",
+      "fieldType": "String"
     }
   ],
   "fluentMethods": true,
