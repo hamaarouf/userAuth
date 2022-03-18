@@ -22,7 +22,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  */
 @Entity
 @Table(name = "jhi_user")
-//@SecondaryTable(name = "usuario", pkJoinColumns = @PrimaryKeyJoinColumn(name = "meal_id"))
+@SecondaryTable(name = "utilisateur", pkJoinColumns = @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id"))
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class User extends AbstractAuditingEntity implements Serializable {
 
@@ -36,13 +36,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @NotNull
     @Pattern(regexp = Constants.LOGIN_REGEX)
     @Size(min = 1, max = 50)
-    @Column(length = 50, unique = true, nullable = false)
+    //@Column(length = 50, unique = true, nullable = false)
+    @Column(name = "nom_utilisateur", table = "utilisateur")
     private String login;
 
     @JsonIgnore
     @NotNull
     @Size(min = 60, max = 60)
-    @Column(name = "password_hash", length = 60, nullable = false)
+    //@Column(name = "password_hash", length = 60, nullable = false)
+    @Column(name = "PASSWORD", table = "utilisateur")
     private String password;
 
     @Size(max = 50)
